@@ -70,6 +70,11 @@ public class Grafo {
 		this.matriz[this.posVertice.get(origen)][this.posVertice.get(destino)] = costo; 
 	}
 
+	public void agregarAristaND(String origen, String destino, double costo) {
+		this.matriz[this.posVertice.get(origen)][this.posVertice.get(destino)] = costo;
+		this.matriz[this.posVertice.get(destino)][this.posVertice.get(origen)] = costo;
+	}
+
 	public void imprime(double[][] matriz) {
 
 		for (int i = 0; i < matriz.length; i++) {
@@ -144,17 +149,85 @@ public class Grafo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Grafo g1 = new Grafo();
-		g1.agregaVertice("A");
-		g1.agregaVertice("B");
-		g1.agregaVertice("C");
+		g1.agregaVertice("El Rosario");
+		g1.agregaVertice("Instituto del Petroleo");
+		g1.agregaVertice("18 de Marzo");		
+		g1.agregaVertice("Martin Carrera");
+		g1.agregaVertice("La Raza");
+		g1.agregaVertice("Consulado");
+		g1.agregaVertice("Tacuba");
+		g1.agregaVertice("Guerrero");
+		g1.agregaVertice("Garibaldi");
+		g1.agregaVertice("Oceania");
+		g1.agregaVertice("Hidalgo");
+		g1.agregaVertice("Bellas Artes");
+		g1.agregaVertice("Morelos");
+		g1.agregaVertice("Balderas");
+		g1.agregaVertice("Salto del Agua");
+		g1.agregaVertice("Pino Suarez");
+		g1.agregaVertice("San Lazaro");
+		g1.agregaVertice("Candelaria");
+		g1.agregaVertice("Pantitlan");
+		g1.agregaVertice("Tacubaya");
+		g1.agregaVertice("Centro Medico");
+		g1.agregaVertice("Chabacano");
+		g1.agregaVertice("Jamaica");
+		g1.agregaVertice("Mixcoac");
+		g1.agregaVertice("Zapata");
+		g1.agregaVertice("Ermita");
+		g1.agregaVertice("Atlalilco");
 
 		
-		g1.agregarArista("A", "C", 1);
-		g1.agregarArista("B", "A", 2);
-		g1.agregarArista("B", "C", 3);
-		g1.agregarArista("C", "B", 4);
+		g1.agregarAristaND("El Rosario", "Instituto del Petroleo", 5);
+		g1.agregarAristaND("El Rosario", "Tacuba", 3);
+		g1.agregarAristaND("Instituto del Petroleo", "18 de Marzo", 1);
+		g1.agregarAristaND("Instituto del Petroleo", "La Raza", 1);
+		g1.agregarAristaND("18 de Marzo", "Martin Carrera", 1);
+		g1.agregarAristaND("18 de Marzo", "La Raza", 1);
+		g1.agregarAristaND("La Raza", "Consulado", 2);
+		g1.agregarAristaND("La Raza", "Guerrero", 1);
+		g1.agregarAristaND("Martin Carrera", "Consulado", 2);
+		g1.agregarAristaND("Consulado", "Oceania", 2);
+		g1.agregarAristaND("Consulado", "Morelos", 1);
+		g1.agregarAristaND("Oceania", "San Lazaro", 2);
+		g1.agregarAristaND("Oceania", "Pantitlan", 2);
+		g1.agregarAristaND("Tacuba", "Tacubaya", 4);
+		g1.agregarAristaND("Tacuba", "Hidalgo", 6);
+		g1.agregarAristaND("Guerrero", "Garibaldi", 0);
+		g1.agregarAristaND("Guerrero", "Hidalgo", 0);
+		g1.agregarAristaND("Hidalgo", "Bellas Artes", 0);
+		g1.agregarAristaND("Hidalgo", "Balderas", 1);
+		g1.agregarAristaND("Garibaldi", "Bellas Artes", 0);
+		g1.agregarAristaND("Garibaldi", "Morelos", 2);
+		g1.agregarAristaND("Bellas Artes", "Salto del Agua", 1);
+		g1.agregarAristaND("Bellas Artes", "Pino de Suarez", 2);
+		g1.agregarAristaND("Morelos", "Candelaria", 0);
+		g1.agregarAristaND("Morelos", "San Lazaro", 0);
+		g1.agregarAristaND("Tacubaya", "Mixcoac", 2);
+		g1.agregarAristaND("Tacubaya", "Centro Medico", 2);
+		g1.agregarAristaND("Tacubaya", "Balderas", 5);
+		g1.agregarAristaND("Balderas", "Centro Medico", 2);
+		g1.agregarAristaND("Balderas", "Salto del Agua", 0);
+		g1.agregarAristaND("Salto del Agua", "Pino Suarez", 1);
+		g1.agregarAristaND("Salto del Agua", "Chabacano", 2);
+		g1.agregarAristaND("Pino Suarez", "Candelaria", 0);
+		g1.agregarAristaND("Pino Suarez", "Chabacano", 1);
+		g1.agregarAristaND("Candelaria", "San Lazaro", 0);
+		g1.agregarAristaND("Candelaria", "Jamaica", 1);
+		g1.agregarAristaND("San Lazaro", "Pantitlan", 5);
+		g1.agregarAristaND("Centro Medico", "Chabacano", 1);
+		g1.agregarAristaND("Centro Medico", "Zapata", 3);
+		g1.agregarAristaND("Chabacano", "Jamaica", 0);
+		g1.agregarAristaND("Chabacano", "Santa Anita", 1);
+		g1.agregarAristaND("Chabacano", "Ermita", 5);
+		g1.agregarAristaND("Jamaica", "Pantitlan", 4);
+		g1.agregarAristaND("Jamaica", "Santa Anita", 0);
+		g1.agregarAristaND("Santa Anita", "Atlalilco", 5);
+
+
+
 		
-		double[] corto = g1.dijkstra("A");
+		double[] corto = g1.dijkstra("El Rosario");
 		
 		for (int i = 0; i < corto.length; i++) {
 			System.out.print(corto[i]+", ");
